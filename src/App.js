@@ -1,5 +1,5 @@
 import './App.css';
-import {Fragment} from "react";
+import React, {Fragment} from "react";
 import Nav from "./component/bootstrap/Nav";
 import Header from "./component/bootstrap/Header";
 import Aside from "./component/bootstrap/Aside";
@@ -9,6 +9,7 @@ import Section3 from "./component/bootstrap/Section3";
 import Section4 from "./component/bootstrap/Section4";
 import Footer from "./component/bootstrap/Footer";
 import Div from "./component/bootstrap/div";
+import Card from "./component/card/Card";
 
 function App() {
     return (
@@ -17,6 +18,17 @@ function App() {
             <Nav/>
             {/* Mashead header*/}
             <Header/>
+            <section className="download bg-primary text-center" id="download">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-md-8 mx-auto">
+                            <div className="badges">
+                                <Card color="yellow"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
             {/* Quote/testimonial aside*/}
             <Aside/>
             {/* App features section*/}
