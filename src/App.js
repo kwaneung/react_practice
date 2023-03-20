@@ -1,5 +1,5 @@
 import './App.css';
-import React, {Fragment} from "react";
+import React, {Fragment, useState} from "react";
 import Nav from "./component/bootstrap/Nav";
 import Header from "./component/bootstrap/Header";
 import Aside from "./component/bootstrap/Aside";
@@ -12,6 +12,8 @@ import Div from "./component/bootstrap/div";
 import Card from "./component/card/Card";
 
 function App() {
+    const [color, setColor] = useState("yellow");
+
     return (
         <Fragment>
             {/* Navigation*/}
@@ -23,8 +25,12 @@ function App() {
                     <div className="row">
                         <div className="col-md-8 mx-auto">
                             <div className="badges">
-                                <Card color="yellow"/>
+                                <Card color={color}/>
                             </div>
+                        </div>
+                        <div className="col-md-8 mx-auto">
+                            <button onClick={()=>setColor("yellow")}> 노란색 </button>
+                            <button onClick={()=>setColor("blue")}> 파란색 </button>
                         </div>
                     </div>
                 </div>
