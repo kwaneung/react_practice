@@ -1,63 +1,21 @@
 import './App.css';
-import React, {Fragment, useState} from "react";
-import Nav from "./component/bootstrap/Nav";
-import Header from "./component/bootstrap/Header";
-import Aside from "./component/bootstrap/Aside";
-import Section1 from "./component/bootstrap/Section1";
-import Section2 from "./component/bootstrap/Section2";
-import Section3 from "./component/bootstrap/Section3";
-import Section4 from "./component/bootstrap/Section4";
-import Footer from "./component/bootstrap/Footer";
-import Div from "./component/bootstrap/div";
-import Card from "./component/card/Card";
+import React, {Fragment} from "react";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import FunctionComponent from "./component/FunctionComponent";
+import NotFound from "./component/NotFound";
+import App2 from "./App2";
 
 function App() {
-    const [color, setColor] = useState("yellow");
-
     return (
         <Fragment>
-            {/* Navigation*/}
-            <Nav/>
-            {/* Mashead header*/}
-            <Header/>
-            <section className="download bg-primary text-center" id="download">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-md-8 mx-auto">
-                            <div className="badges">
-                                <Card color={color}/>
-                            </div>
-                        </div>
-                        <div className="col-md-8 mx-auto">
-                            <button onClick={()=>setColor("yellow")}> 노란색 </button>
-                            <button onClick={()=>setColor("blue")}> 파란색 </button>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            {/* Quote/testimonial aside*/}
-            <Aside/>
-            {/* App features section*/}
-            <Section1/>
-            {/* Basic features section*/}
-            <Section2/>
-            {/* Call to action section*/}
-            <Section3/>
-            {/* App badge section*/}
-            <Section4/>
-            {/* Footer*/}
-            <Footer/>
-            {/* Feedback Modal*/}
-            <Div/>
-            {/* Bootstrap core JS*/}
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-            {/* Core theme JS*/}
-            <script src="js/scripts.js"></script>
-            {/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * **/}
-            {/* * *                               SB Forms JS                               * **/}
-            {/* * * Activate your form at https://startbootstrap.com/solution/contact-forms * **/}
-            {/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * **/}
-            <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<App2 />}></Route>
+                    <Route path="/product/:productId" element={<FunctionComponent />}></Route>
+                    {/* 상단에 위치하는 라우트들의 규칙을 모두 확인, 일치하는 라우트가 없는경우 처리 */}
+                    <Route path="*" element={<NotFound />}></Route>
+                </Routes>
+            </BrowserRouter>
         </Fragment>
     );
 }
